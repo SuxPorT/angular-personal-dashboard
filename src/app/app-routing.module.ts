@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { AddNoteComponent } from './components/add-note/add-note.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     path: 'notes',
     component: NotesComponent,
     data: { tab: 3 }
-  }
+  },
+  { path: 'notes/add', component: AddNoteComponent }
 ];
 
 @NgModule({

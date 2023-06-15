@@ -9,6 +9,7 @@ import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { BookmarkTileComponent } from './components/bookmark-tile/bookmark-tile.component';
+import { AddNoteComponent } from './components/add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BookmarkTileComponent } from './components/bookmark-tile/bookmark-tile.
     BookmarksComponent,
     TodosComponent,
     NotesComponent,
-    BookmarkTileComponent
+    BookmarkTileComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,
