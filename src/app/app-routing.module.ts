@@ -4,6 +4,7 @@ import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     component: NotesComponent,
     data: { tab: 3 }
   },
-  { path: 'notes/add', component: AddNoteComponent }
+  { path: 'notes/add', component: AddNoteComponent },
+  { path: 'notes/:id', component: EditNoteComponent }
 ];
 
 @NgModule({
