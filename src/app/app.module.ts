@@ -13,6 +13,7 @@ import { BookmarkTileComponent } from './components/bookmark-tile/bookmark-tile.
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { NoteCardComponent } from './components/note-card/note-card.component';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditNoteComponent } from './components/edit-note/edit-note.component';
     BookmarkTileComponent,
     AddNoteComponent,
     NoteCardComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
