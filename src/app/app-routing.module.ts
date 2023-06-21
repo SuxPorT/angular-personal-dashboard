@@ -6,6 +6,7 @@ import { NotesComponent } from './components/notes/notes.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     data: { tab: 2 }
   },
   { path: 'todos/add', component: AddTodoComponent },
+  { path: 'todos/:id', component: EditTodoComponent },
   {
     path: 'notes',
     component: NotesComponent,

@@ -15,7 +15,7 @@ export class AddTodoComponent {
 
   constructor(private todoService: TodoService, private router: Router) { }
 
-  onFormSubmit(form: NgForm) {
+  onFormSubmit(form: NgForm): boolean | undefined {
     if (form.invalid) return this.showValidationErrors = true;
 
     const todo = new Todo(form.value.text);

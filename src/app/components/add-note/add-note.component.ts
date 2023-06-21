@@ -15,7 +15,7 @@ export class AddNoteComponent {
 
   constructor(private noteService: NoteService, private router: Router) { }
 
-  onFormSubmit(form: NgForm) {
+  onFormSubmit(form: NgForm): boolean | undefined {
     if (form.invalid) return this.showValidationErrors = true;
 
     const note = new Note(form.value.title, form.value.content);
