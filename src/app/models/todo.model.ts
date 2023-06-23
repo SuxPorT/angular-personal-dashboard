@@ -8,4 +8,5 @@ export class Todo {
     this.id = uuidv4();
     this.completed = false;
   }
+
 }

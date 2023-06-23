@@ -38,4 +38,5 @@ export class NoteService {
 
     this.notes.splice(noteIndex, 1);
   }
+
 }
