@@ -7,12 +7,16 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
+import { AddBookmarkComponent } from './components/add-bookmark/add-bookmark.component';
 
 const routes: Routes = [
   {
     path: 'bookmarks',
     component: BookmarksComponent,
     data: { tab: 1 }
+  },
+  {
+    path: 'bookmarks/add', component: AddBookmarkComponent
   },
   {
     path: 'todos',
