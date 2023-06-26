@@ -11,6 +11,7 @@ export class BookmarkTileComponent implements OnInit {
   @Input() bookmark!: Bookmark;
 
   titleIconSrc: string = '';
+  faviconError: boolean = false;
 
   constructor() { }
 

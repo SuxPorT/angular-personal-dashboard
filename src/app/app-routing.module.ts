@@ -8,6 +8,8 @@ import { EditNoteComponent } from './components/edit-note/edit-note.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
 import { AddBookmarkComponent } from './components/add-bookmark/add-bookmark.component';
+import { ManageBookmarksComponent } from './components/manage-bookmarks/manage-bookmarks.component';
+import { EditBookmarkComponent } from './components/edit-bookmark/edit-bookmark.component';
 
 const routes: Routes = [
   {
@@ -15,8 +17,13 @@ const routes: Routes = [
     component: BookmarksComponent,
     data: { tab: 1 }
   },
+  { path: 'bookmarks/add', component: AddBookmarkComponent },
   {
-    path: 'bookmarks/add', component: AddBookmarkComponent
+    path: 'bookmarks/manage',
+    component: ManageBookmarksComponent,
+    children: [
+      { path: ':id', component: EditBookmarkComponent }
+    ]
   },
   {
     path: 'todos',

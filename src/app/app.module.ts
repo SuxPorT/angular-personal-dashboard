@@ -17,6 +17,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
 import { AddBookmarkComponent } from './components/add-bookmark/add-bookmark.component';
+import { ManageBookmarksComponent } from './components/manage-bookmarks/manage-bookmarks.component';
+import { EditBookmarkComponent } from './components/edit-bookmark/edit-bookmark.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AddBookmarkComponent } from './components/add-bookmark/add-bookmark.com
     TodoItemComponent,
     AddTodoComponent,
     EditTodoComponent,
-    AddBookmarkComponent
+    AddBookmarkComponent,
+    ManageBookmarksComponent,
+    EditBookmarkComponent
   ],
   imports: [
     BrowserModule,
