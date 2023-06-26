@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Note } from 'src/app/models/note.model';
 import { NoteService } from 'src/app/services/note.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-add-note',
@@ -13,7 +14,11 @@ export class AddNoteComponent {
 
   showValidationErrors: boolean = false;
 
-  constructor(private noteService: NoteService, private router: Router) { }
+  constructor(
+    private router: Router,
+    private noteService: NoteService,
+    private notificationService: NotificationService
+  ) { }
 
   onFormSubmit(form: NgForm): boolean | undefined {
     if (form.invalid) return this.showValidationErrors = true;
@@ -22,6 +27,7 @@ export class AddNoteComponent {
 
     this.noteService.addNote(note);
     this.router.navigateByUrl("/notes");
+    this.notificationService.show('Note created!');
 
     return;
   }
