@@ -22,6 +22,10 @@ export class BookmarkService implements OnDestroy {
     if (this.storageListenSub) this.storageListenSub.unsubscribe();
   }
 
+  getBookmarks() {
+    return this.bookmarks;
+  }
+
   getBookmark(id: string): Bookmark | undefined {
     return this.bookmarks.find(b => b.id === id);
   }

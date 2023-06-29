@@ -2,15 +2,17 @@
     display:flex;
     flex-direction: column;
     height: 100%;
-    background-image: url('https://source.unsplash.com/collection/random/1920x1080');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+}
+
+.bg-img {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .top-section {
-    //background-color: #7fffd4;
     text-align: center;
     padding: 100px 0px;
 
@@ -29,16 +31,32 @@
 }
 
 .content-section {
-    // background-color: #5f9ea0;
     flex-grow: 1;
     min-height: 0;
 }
 
 .bottom-section {
-    // background-color: #ff7f50;
     display: flex;
 
     app-tabs {
         margin: auto;
+    }
+}
+
+.change-bg-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background: rgba(#000, 0.1);
+    color: rgba(#fff, 0.7);
+
+    &:hover {
+        background: rgba(#000, 0.3);
+        color: #fff;
+    }
+
+    &:active {
+        transform: translateY(1px);
     }
 }
