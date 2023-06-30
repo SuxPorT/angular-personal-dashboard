@@ -1,6 +1,7 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Observable, map, timer } from 'rxjs';
 
 const baseStyles = style({
   position: 'absolute',
@@ -17,10 +18,7 @@ const baseStyles = style({
   animations: [
     trigger('routeAnim', [
       transition(':increment', [
-        style({
-          position: 'relative',
-          overflow: 'hidden'
-        }),
+        style({ position: 'relative', overflow: 'hidden' }),
 
         query(':enter, :leave', [baseStyles], { optional: true }),
 
@@ -33,10 +31,8 @@ const baseStyles = style({
           ], { optional: true }),
 
           query(':enter', [
-            style({
-              transform: 'translateX(50px)',
-              opacity: 0
-            }),
+            style({ transform: 'translateX(50px)', opacity: 0 }),
+
             animate('250ms 120ms ease-out', style({
               opacity: 1,
               transform: 'translateX(0)'
@@ -46,10 +42,7 @@ const baseStyles = style({
       ]),
 
       transition(':decrement', [
-        style({
-          position: 'relative',
-          overflow: 'hidden'
-        }),
+        style({ position: 'relative', overflow: 'hidden' }),
 
         query(':enter, :leave', [baseStyles], { optional: true }),
 
@@ -62,10 +55,8 @@ const baseStyles = style({
           ], { optional: true }),
 
           query(':enter', [
-            style({
-              transform: 'translateX(-50px)',
-              opacity: 0
-            }),
+            style({ transform: 'translateX(-50px)', opacity: 0 }),
+
             animate('250ms 120ms ease-out', style({
               opacity: 1,
               transform: 'translateX(0)'
@@ -75,9 +66,7 @@ const baseStyles = style({
       ]),
 
       transition('* => secondary', [
-        style({
-          position: 'relative'
-        }),
+        style({ position: 'relative' }),
 
         query(':enter, :leave', [baseStyles], { optional: true }),
 
@@ -90,10 +79,8 @@ const baseStyles = style({
           ], { optional: true }),
 
           query(':enter', [
-            style({
-              transform: 'scale(1.2)',
-              opacity: 0
-            }),
+            style({ transform: 'scale(1.2)', opacity: 0 }),
+
             animate('250ms 120ms ease-out', style({
               opacity: 1,
               transform: 'scale(1)'
@@ -102,10 +89,8 @@ const baseStyles = style({
         ])
       ]),
 
-      transition('*secondary => *', [
-        style({
-          position: 'relative'
-        }),
+      transition('secondary => *', [
+        style({ position: 'relative' }),
 
         query(':enter, :leave', [baseStyles], { optional: true }),
 
@@ -118,10 +103,8 @@ const baseStyles = style({
           ], { optional: true }),
 
           query(':enter', [
-            style({
-              transform: 'scale(0.8)',
-              opacity: 0
-            }),
+            style({ transform: 'scale(0.8)', opacity: 0 }),
+
             animate('250ms 120ms ease-out', style({
               opacity: 1,
               transform: 'scale(1)'
@@ -132,34 +115,38 @@ const baseStyles = style({
     ]),
 
     trigger('bgAnim', [
-      transition(':leave', [
-        animate(1000, style({
-          opacity: 0
-        }))
-      ])
+      transition(':leave', [animate(1000, style({ opacity: 0 }))])
     ]),
 
     trigger('fadeAnim', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate(250, style({
-          opacity: 1
-        }))
+
+        animate(250, style({ opacity: 1 }))
       ]),
 
-      transition(':leave', [
-        animate(250, style({ opacity: 0 }))
-      ])
+      transition(':leave', [animate(250, style({ opacity: 0 }))])
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   backgrounds: string[] = [
     'https://fastly.picsum.photos/id/66/3264/2448.jpg?hmac=H9yvGug9-Lk5f-1qZqs6dEV-Yd40jFOIC7oudo4eBK4'
   ];
 
   loadingBackgroundImage: boolean = false;
+  dateTime!: Observable<Date>;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date();
+      })
+    );
+  }
 
   prepareRoute(outlet: RouterOutlet): string | void {
     if (outlet.isActivated) {
@@ -185,7 +172,7 @@ export class AppComponent {
       return;
     }));
 
-  }
+  };
 
   onBackgroundImageLoad(imageEvent: Event): void {
     const imageElement = imageEvent.target as HTMLImageElement;
