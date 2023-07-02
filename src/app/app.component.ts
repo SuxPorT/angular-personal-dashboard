@@ -120,9 +120,7 @@ const baseStyles = style({
 
     trigger('fadeAnim', [
       transition(':enter', [
-        style({ opacity: 0 }),
-
-        animate(250, style({ opacity: 1 }))
+        style({ opacity: 0 }), animate(250, style({ opacity: 1 }))
       ]),
 
       transition(':leave', [animate(250, style({ opacity: 0 }))])
@@ -141,11 +139,7 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.dateTime = timer(0, 1000).pipe(
-      map(() => {
-        return new Date();
-      })
-    );
+    this.dateTime = timer(0, 1000).pipe(map(() => new Date()));
   }
 
   prepareRoute(outlet: RouterOutlet): string | void {
@@ -179,7 +173,6 @@ export class AppComponent implements OnInit {
     const src = imageElement.src;
 
     this.backgrounds = this.backgrounds.filter(b => b === src);
-
     this.loadingBackgroundImage = false;
   }
 

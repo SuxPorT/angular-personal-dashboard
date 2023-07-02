@@ -11,11 +11,7 @@ import { TodoService } from 'src/app/services/todo.service';
   animations: [
     trigger('todoItemAnim', [
       transition(':leave', [
-        animate(200, style({
-          opacity: 0,
-          height: 0,
-          marginBottom: 0
-        }))
+        animate(200, style({ opacity: 0, height: 0, marginBottom: 0 }))
       ])
     ])
   ]
@@ -28,7 +24,6 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
-    this.todos[0].completed = true;
   }
 
   toggleCompleted(todo: Todo): void {

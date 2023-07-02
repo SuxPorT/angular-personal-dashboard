@@ -1,4 +1,7 @@
-# AngularPersonalDashboard
+# Angular Personal Dashboard
+
+Original project [Build a Personal Dashboard App with Angular](https://youtube.com/playlist?list=PLIjdNHWULhPR2Tp3fA6Yg8_OY7bG35S5q)
+made by [Devstackr](https://github.com/Devstackr/angular-personal-dashboard).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 

@@ -10,17 +10,12 @@ import { NotificationService } from 'src/app/services/notification.service';
   animations: [
     trigger('notificationAnim', [
       transition(':enter', [
-        style({
-          opacity: 0,
-          transform: 'translateY(5px)'
-        }),
+        style({ opacity: 0, transform: 'translateY(5px)' }),
+
         animate('150ms 125ms ease-out')
       ]),
       transition(':leave', [
-        animate(125, style({
-          opacity: 0,
-          transform: 'scale(0.85)'
-        }))
+        animate(125, style({ opacity: 0, ransform: 'scale(0.85)' }))
       ])
     ])
   ]
@@ -33,15 +28,16 @@ export class NotificationComponent implements OnInit {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.notificationService.notifications.subscribe((notification: NotificationData) => {
-      this.notification = Array(notification);
+    this.notificationService.notifications
+      .subscribe((notification: NotificationData) => {
+        this.notification = Array(notification);
 
-      clearTimeout(this.timeout);
+        clearTimeout(this.timeout);
 
-      this.timeout = setTimeout(() => {
-        this.notification = null;
-      }, notification.duration);
-    });
+        this.timeout = setTimeout(() => {
+          this.notification = null;
+        }, notification.duration);
+      });
   }
 
 }

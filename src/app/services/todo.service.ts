@@ -13,9 +13,10 @@ export class TodoService implements OnDestroy {
   constructor() {
     this.loadState();
 
-    this.storageListenSub = fromEvent(window, 'storage').subscribe((event: any) => {
-      if (event.key === 'todos') this.loadState();
-    });
+    this.storageListenSub = fromEvent(window, 'storage')
+      .subscribe((event: any) => {
+        if (event.key === 'todos') this.loadState();
+      });
   }
 
   ngOnDestroy(): void {
@@ -32,7 +33,6 @@ export class TodoService implements OnDestroy {
 
   addTodo(todo: Todo): void {
     this.todos.push(todo);
-
     this.saveState();
   }
 
@@ -50,7 +50,6 @@ export class TodoService implements OnDestroy {
     if (index == -1) return;
 
     this.todos.splice(index, 1);
-
     this.saveState();
   }
 

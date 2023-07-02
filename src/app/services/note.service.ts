@@ -13,9 +13,10 @@ export class NoteService implements OnDestroy {
   constructor() {
     this.loadState();
 
-    this.storageListenSub = fromEvent(window, 'storage').subscribe((event: any) => {
-      if (event.key === 'notes') this.loadState();
-    });
+    this.storageListenSub = fromEvent(window, 'storage')
+      .subscribe((event: any) => {
+        if (event.key === 'notes') this.loadState();
+      });
   }
 
   ngOnDestroy(): void {
@@ -32,7 +33,6 @@ export class NoteService implements OnDestroy {
 
   addNote(note: Note): void {
     this.notes.push(note);
-
     this.saveState();
   }
 
@@ -50,7 +50,6 @@ export class NoteService implements OnDestroy {
     if (noteIndex == -1) return;
 
     this.notes.splice(noteIndex, 1);
-
     this.saveState();
   }
 

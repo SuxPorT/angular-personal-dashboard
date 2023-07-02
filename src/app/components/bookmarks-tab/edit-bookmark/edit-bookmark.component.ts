@@ -25,7 +25,6 @@ export class EditBookmarkComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const bookmarkId = paramMap.get("id")!;
-
       this.bookmark = this.bookmarkService.getBookmark(bookmarkId)!;
     });
   }

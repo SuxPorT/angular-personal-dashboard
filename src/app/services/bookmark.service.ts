@@ -13,9 +13,10 @@ export class BookmarkService implements OnDestroy {
   constructor() {
     this.loadState();
 
-    this.storageListenSub = fromEvent(window, 'storage').subscribe((event: any) => {
-      if (event.key === 'bookmarks') this.loadState();
-    });
+    this.storageListenSub = fromEvent(window, 'storage')
+      .subscribe((event: any) => {
+        if (event.key === 'bookmarks') this.loadState();
+      });
   }
 
   ngOnDestroy(): void {
@@ -32,7 +33,6 @@ export class BookmarkService implements OnDestroy {
 
   addBookmark(bookmark: Bookmark): void {
     this.bookmarks.push(bookmark);
-
     this.saveState();
   };
 
@@ -50,7 +50,6 @@ export class BookmarkService implements OnDestroy {
     if (bookmarkIndex == -1) return;
 
     this.bookmarks.splice(bookmarkIndex, 1);
-
     this.saveState();
   }
 
@@ -60,10 +59,11 @@ export class BookmarkService implements OnDestroy {
 
   loadState(): void {
     try {
-      const bookmarksInStorage = JSON.parse(localStorage.getItem('bookmarks')!, (key, value) => {
-        if (key == 'url') return new URL(value);
-        return value;
-      });
+      const bookmarksInStorage = JSON.parse(localStorage.getItem('bookmarks')!,
+        (key, value) => {
+          if (key == 'url') return new URL(value);
+          return value;
+        });
 
       this.bookmarks.length = 0; // Clear the todos array (while keeping the reference)
       this.bookmarks.push(...bookmarksInStorage);
